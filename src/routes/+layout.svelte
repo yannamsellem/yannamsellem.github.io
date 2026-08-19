@@ -4,12 +4,14 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import SkipLink from '$lib/components/SkipLink.svelte';
+	import MetaTags from '$lib/components/MetaTags.svelte';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<MetaTags />
 </svelte:head>
 
 <SkipLink />
