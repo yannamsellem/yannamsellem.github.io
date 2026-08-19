@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import { theme } from '$lib/theme.svelte';
-	import Sun from '@lucide/svelte/icons/sun';
-	import Moon from '@lucide/svelte/icons/moon';
+	import { page } from '$app/state';
 	import GithubIcon from './GithubIcon.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 	import TwitterIcon from './TwitterIcon.svelte';
 
 	const pathname = $derived(page.url.pathname);
@@ -69,18 +67,7 @@
 				<TwitterIcon size={18} />
 			</a>
 
-			<button
-				type="button"
-				onclick={theme.toggle}
-				aria-label="Toggle dark/light theme"
-				class="cursor-pointer rounded p-1 text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100"
-			>
-				{#if theme.current === 'dark'}
-					<Sun size={18} strokeWidth={1.8} />
-				{:else}
-					<Moon size={18} strokeWidth={1.8} />
-				{/if}
-			</button>
+			<ThemeToggle />
 		</div>
 	</nav>
 </header>
