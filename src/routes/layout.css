@@ -1,16 +1,112 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/typography';
+@import '../lib/styles/reset.css';
 
-@custom-variant dark (&:is(.dark *));
+:root {
+	--bg-primary: #fafafa;
+	--bg-surface: #ffffff;
+	--bg-hover: rgba(0, 0, 0, 0.04);
+	--bg-tag: rgba(0, 0, 0, 0.05);
+	--bg-tag-hover: rgba(0, 0, 0, 0.08);
+	--bg-code: rgba(0, 0, 0, 0.06);
+	--bg-selection: rgba(0, 0, 0, 0.12);
 
-@layer base {
-	html {
-		font-family:
-			-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
-			'Droid Sans', 'Helvetica Neue', sans-serif;
-	}
+	--text-primary: #1a1a1a;
+	--text-secondary: #4a4a4a;
+	--text-muted: #666666;
+	--text-accent: #2563eb;
 
-	::selection {
-		background-color: rgba(125, 125, 125, 0.3);
-	}
+	--border-subtle: #e5e7eb;
+	--border-link: #9ca3af;
+	--border-link-hover: #1a1a1a;
+	--ring-avatar: #e5e7eb;
+
+	--font-sans:
+		-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+		'Droid Sans', 'Helvetica Neue', sans-serif;
+	--font-mono:
+		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+		monospace;
+
+	--max-width: 42rem;
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-full: 9999px;
+	--transition-base: 0.15s ease;
+}
+
+html.dark {
+	--bg-primary: #121212;
+	--bg-surface: #181818;
+	--bg-hover: rgba(255, 255, 255, 0.04);
+	--bg-tag: rgba(255, 255, 255, 0.06);
+	--bg-tag-hover: rgba(255, 255, 255, 0.1);
+	--bg-code: rgba(255, 255, 255, 0.08);
+	--bg-selection: rgba(255, 255, 255, 0.15);
+
+	--text-primary: #e5e5e5;
+	--text-secondary: #a3a3a3;
+	--text-muted: #888888;
+	--text-accent: #60a5fa;
+
+	--border-subtle: #262626;
+	--border-link: #525252;
+	--border-link-hover: #e5e5e5;
+	--ring-avatar: #262626;
+}
+
+html {
+	font-family: var(--font-sans);
+}
+
+body {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	font-family: var(--font-sans);
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+/* Accessible focus outline */
+:focus-visible {
+	outline: 2px solid var(--text-accent);
+	outline-offset: 2px;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+button {
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+::selection {
+	background-color: var(--bg-selection);
+}
+
+/* Screen reader only utility class */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }

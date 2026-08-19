@@ -13,30 +13,12 @@
 	});
 </script>
 
-<svelte:head>
-	<script>
-		try {
-			const theme = localStorage.getItem('theme');
-
-			document.documentElement.classList.add(
-				!theme || theme === 'system'
-					? window.matchMedia('(prefers-color-scheme: dark)').matches
-						? 'dark'
-						: 'light'
-					: theme
-			);
-		} catch {
-			// localStorage access disabled
-		}
-	</script>
-</svelte:head>
-
 <button
 	type="button"
 	onclick={toggle}
-	aria-label="Toggle dark/light theme"
+	aria-label="Toggle dark and light theme"
 	aria-pressed={theme.current === 'dark'}
-	class="cursor-pointer rounded p-1 text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-100"
+	class="theme-toggle"
 >
 	{#if theme.current === 'dark'}
 		<Sun size={18} strokeWidth={1.8} />
@@ -44,3 +26,23 @@
 		<Moon size={18} strokeWidth={1.8} />
 	{/if}
 </button>
+
+<style>
+	.theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.25rem;
+		border-radius: var(--radius-sm);
+		color: var(--text-muted);
+		transition:
+			color var(--transition-base),
+			background-color var(--transition-base);
+		cursor: pointer;
+	}
+
+	.theme-toggle:hover {
+		color: var(--text-primary);
+		background-color: var(--bg-hover);
+	}
+</style>

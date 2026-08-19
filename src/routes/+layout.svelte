@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import SkipLink from '$lib/components/SkipLink.svelte';
 
 	let { children } = $props();
 </script>
@@ -11,14 +12,41 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div
-	class="mx-auto flex min-h-screen max-w-2xl flex-col justify-between px-6 selection:bg-neutral-300/40 dark:selection:bg-neutral-700/40"
->
-	<div>
-		<Header />
-		<main class="py-4">
+<SkipLink />
+
+<div class="site-wrapper">
+	<Header />
+	<div class="layout-container">
+		<main id="main-content" class="main-content" tabindex="-1">
 			{@render children()}
 		</main>
+		<Footer />
 	</div>
-	<Footer />
 </div>
+
+<style>
+	.site-wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.layout-container {
+		max-width: var(--max-width);
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.main-content {
+		flex: 1;
+		padding: 1rem 0;
+	}
+
+	.main-content:focus {
+		outline: none;
+	}
+</style>

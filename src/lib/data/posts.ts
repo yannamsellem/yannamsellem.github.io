@@ -10,11 +10,19 @@ export const posts: PostItem[] = [
 		year: 2025
 	},
 	{
-		title: 'Unlocking Token Secrets: Mapping Out Top Holders and Transfers (Part 1 & 2)',
+		title: 'Unlocking Token Secrets: Mapping Out Top Holders and Transfers — Part 2',
 		description:
-			'Methodologies for transforming raw blockchain data into interactive transfer graphs.',
+			'Transforming raw blockchain data into an interactive, real-time graph visualization using SvelteKit and D3.js.',
+		url: 'https://medium.com/agnosticeng/unlocking-token-secrets-mapping-out-top-holders-and-transfers-part-2',
+		platform: 'Medium',
+		year: 2024
+	},
+	{
+		title: 'Unlocking Token Secrets: Mapping Out Top Holders and Transfers — Part 1',
+		description:
+			'Gathering and querying on-chain token holder balances and transfer volumes using SQL to build graph nodes and edges.',
 		url: 'https://medium.com/agnosticeng/unlocking-token-secrets-mapping-out-top-holders-and-transfers-part-1-32ac7a0cae0a',
 		platform: 'Medium',
-		year: 2023
+		year: 2024
 	}
 ];

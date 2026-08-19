@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { posts } from '$lib/data/posts';
-	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import PostCard from '$lib/components/PostCard.svelte';
 
 	// Group posts by year descending
 	const years = $derived.by(() => {
@@ -16,62 +16,101 @@
 	<title>Posts — Yann Amsellem</title>
 </svelte:head>
 
-<section class="space-y-10">
-	<div>
-		<h1
-			class="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl dark:text-neutral-100"
-		>
-			Posts
-		</h1>
-		<p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-			Articles, deep dives, and technical publications.
-		</p>
-	</div>
+<section class="posts-page" aria-labelledby="posts-title">
+	<header class="page-header">
+		<h1 id="posts-title" class="page-title">Posts</h1>
+		<p class="page-subtitle">Articles, deep dives, and technical publications.</p>
+	</header>
 
-	<div class="space-y-10">
+	<div class="years-container">
 		{#each years as group (group.year)}
-			<div class="space-y-4">
-				<div class="flex items-center gap-3">
-					<span
-						class="font-mono text-xs font-semibold tracking-wider text-neutral-400 uppercase dark:text-neutral-500"
-					>
+			<section class="year-group" aria-labelledby="year-{group.year}">
+				<div class="year-header">
+					<h2 id="year-{group.year}" class="year-label">
 						{group.year}
-					</span>
-					<div class="h-px flex-1 bg-neutral-200 dark:bg-neutral-800"></div>
+					</h2>
+					<div class="year-divider" aria-hidden="true"></div>
 				</div>
 
-				<div class="space-y-4">
+				<ul class="posts-list" role="list">
 					{#each group.items as post (post.title)}
-						<a
-							href={post.url}
-							target="_blank"
-							rel="external noopener noreferrer"
-							class="group -mx-4 block rounded-lg p-4 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800/40"
-						>
-							<div class="flex items-baseline justify-between gap-3">
-								<h2
-									class="flex items-center gap-1.5 text-base font-medium text-neutral-900 transition-colors group-hover:text-blue-600 dark:text-neutral-100 dark:group-hover:text-blue-400"
-								>
-									<span>{post.title}</span>
-									<ArrowUpRight
-										size={14}
-										strokeWidth={1.8}
-										class="shrink-0 text-neutral-400 transition-colors group-hover:text-blue-600 dark:text-neutral-500 dark:group-hover:text-blue-400"
-									/>
-								</h2>
-							</div>
-
-							<p class="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
-								<span class="font-medium text-neutral-700 dark:text-neutral-300"
-									>{post.platform}</span
-								>
-								<span class="mx-1 text-neutral-400">—</span>
-								<span>{post.description}</span>
-							</p>
-						</a>
+						<li>
+							<PostCard {post} />
+						</li>
 					{/each}
-				</div>
-			</div>
+				</ul>
+			</section>
 		{/each}
 	</div>
 </section>
+
+<style>
+	.posts-page {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	.page-header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.page-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		letter-spacing: -0.025em;
+		color: var(--text-primary);
+	}
+
+	@media (min-width: 640px) {
+		.page-title {
+			font-size: 1.875rem;
+		}
+	}
+
+	.page-subtitle {
+		font-size: 0.875rem;
+		color: var(--text-muted);
+	}
+
+	.years-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	.year-group {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.year-header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.year-label {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		color: var(--text-muted);
+		text-transform: uppercase;
+	}
+
+	.year-divider {
+		height: 1px;
+		flex: 1;
+		background-color: var(--border-subtle);
+	}
+
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>
