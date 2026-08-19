@@ -7,9 +7,16 @@
 		theme.current = theme.current === 'light' ? 'dark' : 'light';
 	}
 
-	$effect(() => {
+	function switch_theme() {
 		document.documentElement.classList.remove('light', 'dark');
 		document.documentElement.classList.add(theme.current);
+	}
+
+	$effect(() => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		theme.current;
+		if (!document.startViewTransition) switch_theme();
+		else document.startViewTransition(switch_theme);
 	});
 </script>
 
