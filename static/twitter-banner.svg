@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="6" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.95" />
+    </filter>
+  </defs>
+  <rect width="1500" height="500" fill="#000000" />
+  <!-- Centered YA Monogram Icon -->
+  <g transform="translate(578.55, 78.55) scale(1.35)">
+    <!-- Path for 'A' -->
+    <path
+      d="M 114 198 Q 109 198 110.4 193.2 L 149.6 60.8 Q 151 56 156 56 L 166 56 Q 171 56 172.4 60.8 L 211.6 193.2 Q 213 198 208 198 L 192 198 Q 187 198 185.8 193.1 L 177.2 158.9 Q 176 154 171 154 L 151 154 Q 146 154 144.8 158.9 L 136.2 193.1 Q 135 198 130 198 Z M 151.8 126.6 Q 151 130 154.5 130 L 167.5 130 Q 171 130 170.2 126.6 L 161.8 91.4 Q 161 88 160.2 91.4 Z"
+      fill="#D4D4D4"
+      fill-rule="evenodd"
+    />
+    <!-- Path for 'Y' with drop shadow -->
+    <path
+      d="M 55 56 Q 50 56 52.6 60.3 L 90.4 123.7 Q 93 128 93 133 L 93 193 Q 93 198 98 198 L 116 198 Q 121 198 121 193 L 121 133 Q 121 128 123.6 123.7 L 161.4 60.3 Q 164 56 159 56 L 139 56 Q 134 56 131.7 60.4 L 109.3 103.6 Q 107 108 104.7 103.6 L 82.3 60.4 Q 80 56 75 56 Z"
+      fill="#FFFFFF"
+      filter="url(#shadow)"
+      stroke="#000000"
+      stroke-width="10"
+      stroke-linejoin="round"
+      paint-order="stroke fill"
+    />
+  </g>
+</svg>
