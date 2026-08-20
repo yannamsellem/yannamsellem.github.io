@@ -98,7 +98,7 @@
 		transition: transform 0.2s ease;
 	}
 
-	.wave:hover {
+	.heading:hover .wave {
 		transform: rotate(12deg);
 	}
 
