@@ -2,6 +2,20 @@ import type { ProjectItem } from '$lib/types';
 
 export const projects: ProjectItem[] = [
 	{
+		title: 'moatfolio',
+		description:
+			'Local-first portfolio terminal & Smart Buy Advisor for the French PEA powered by client-side SQLite WASM, OPFS, and knapsack allocation.',
+		url: 'https://github.com/yannamsellem/moatfolio',
+		tags: ['TypeScript', 'Next.js', 'SQLite WASM', 'OPFS', 'Local-first']
+	},
+	{
+		title: 'auth-services-exercise',
+		description:
+			'Multi-tenant auth platform in Go exploring Envoy ext_authz, gRPC JSON transcoding, RS256 JWTs with token rotation (RTR), Redis rate limiting, and NATS JetStream.',
+		url: 'https://github.com/yannamsellem/auth-services-exercise',
+		tags: ['Go', 'gRPC', 'Envoy', 'NATS', 'Redis', 'JWT']
+	},
+	{
 		title: '@agnosticeng/agx',
 		description:
 			'Desktop & Web AI analytics platform for ClickHouse built with Tauri, Rust, and SvelteKit.',
